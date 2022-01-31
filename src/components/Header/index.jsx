@@ -1,12 +1,13 @@
-import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
+import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 import CloseIcon from "@mui/icons-material/Close";
-import LogoDev from "@mui/icons-material/LogoDev";
-import { Menu, MenuItem, Tooltip } from "@mui/material";
+import GppBadOutlinedIcon from "@mui/icons-material/GppBadOutlined";
+import { Menu, MenuItem } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
+import Fade from "@mui/material/Fade";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
@@ -15,9 +16,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { MODE } from "../../constant/mode";
 import Login from "../../feature/Auth/components/Login";
-import Fade from "@mui/material/Fade";
 import Register from "../../feature/Auth/components/Register";
 import { logout } from "../../feature/Auth/userSlice";
+import SearchFilters from "../../feature/Products/components/Filters/SearchFilters";
 
 const useStyles = makeStyles({
     logo: {
@@ -33,7 +34,7 @@ const useStyles = makeStyles({
 });
 
 function Header() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const classes = useStyles();
     const loggedInUser = useSelector((state) => state.user.currentUser);
     const isLoggedIn = !!loggedInUser?.id;
@@ -62,21 +63,25 @@ function Header() {
 
     //  Logout handled
     const handleLogoutUser = () => {
-        const action = logout()
-        dispatch(action)
-        setAnchorEl(null)
-    }
+        const action = logout();
+        dispatch(action);
+        setAnchorEl(null);
+    };
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
-                <Toolbar sx={{ ml: 4, mr: 4 }}>
-                    <LogoDev className={classes.logo} />
-                    <Typography variant="h6" component="h4" sx={{ flexGrow: 1 }}>
+        <Box id='top' sx={{ flexGrow: 1 }}>
+            <AppBar position="static" >
+                <Toolbar sx={{ ml: 4, mr: 4, height: '80px' }}>
+                    <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
                         <Link className={classes.link} to="/">
-                            LINDEV
+                            <img
+                                style={{ width: "100px" }}
+                                src="https://salt.tikicdn.com/assets/img/image.svg"
+                                alt=""
+                            />
                         </Link>
-                    </Typography>
+                        <SearchFilters />
+                    </Box>
                     {!isLoggedIn && (
                         <Button
                             sx={{ fontWeight: "bold", letterSpacing: "1px" }}
@@ -87,10 +92,18 @@ function Header() {
                         </Button>
                     )}
                     {isLoggedIn && (
-                        <Button onClick={handleOpenUserMenu} >
-                            <AccountCircleTwoToneIcon
-                                sx={{ color: "white", fontSize: "30px" }}
-                            ></AccountCircleTwoToneIcon>
+                        <Button onClick={handleOpenUserMenu}>
+                            <Typography
+                                sx={{
+                                    backgroundColor: "white",
+                                    color: "black",
+                                    padding: "7px 15px",
+                                    borderRadius: "50%",
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                {loggedInUser.fullName.charAt(0)}
+                            </Typography>
                             <Typography
                                 sx={{ color: "white", textTransform: "capitalize", ml: 1 }}
                             >
@@ -104,20 +117,45 @@ function Header() {
 
             <Menu
                 anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
+                    vertical: "bottom",
+                    horizontal: "right",
                 }}
                 transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
+                    vertical: "top",
+                    horizontal: "right",
                 }}
                 anchorEl={anchorEl}
                 open={openUserMenu}
                 onClose={handleCloseUserMenu}
                 TransitionComponent={Fade}
             >
-                <MenuItem sx={{ minWidth: 100 }} onClick={handleCloseUserMenu}>Profile</MenuItem>
-                <MenuItem sx={{ minWidth: 100 }} onClick={handleLogoutUser}>Logout</MenuItem>
+                <MenuItem
+                    sx={{
+                        width: 120,
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: 1,
+                        p: 0,
+                    }}
+                    onClick={handleCloseUserMenu}
+                >
+                    <AccountBoxOutlinedIcon />
+                    <Typography> Profile</Typography>
+                </MenuItem>
+                <MenuItem
+                    sx={{
+                        width: 120,
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: 1,
+                        p: 0,
+                        mt: 1,
+                    }}
+                    onClick={handleLogoutUser}
+                >
+                    <GppBadOutlinedIcon />
+                    <Typography> Logout</Typography>
+                </MenuItem>
             </Menu>
             {/*  Sub Menu */}
 
@@ -167,7 +205,7 @@ function Header() {
                 </DialogContent>
             </Dialog>
             {/* Modal */}
-        </Box >
+        </Box>
     );
 }
 

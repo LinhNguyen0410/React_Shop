@@ -19,6 +19,12 @@ import Login from "../../feature/Auth/components/Login";
 import Register from "../../feature/Auth/components/Register";
 import { logout } from "../../feature/Auth/userSlice";
 import SearchFilters from "../../feature/Products/components/Filters/SearchFilters";
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import MiniCart from "../../feature/Cart/components/MiniCart";
+import { showMiniCart } from "../../feature/Cart/cartSlice";
+import { cartItemCount } from "../../feature/Cart/selectors";
 
 const useStyles = makeStyles({
     logo: {
@@ -44,6 +50,10 @@ function Header() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const openUserMenu = Boolean(anchorEl);
 
+    const quantity = useSelector(cartItemCount)
+    //  using selector.js get count all product
+
+
     // Dialog Event
     const handleOpenDialog = () => {
         setOpen(true);
@@ -67,6 +77,11 @@ function Header() {
         dispatch(action);
         setAnchorEl(null);
     };
+
+    const handleShowMiniCart = () => {
+        dispatch(showMiniCart())
+    }
+
 
     return (
         <Box id='top' sx={{ flexGrow: 1 }}>
@@ -98,7 +113,7 @@ function Header() {
                                     backgroundColor: "white",
                                     color: "black",
                                     padding: "7px 15px",
-                                    borderRadius: "50%",
+                                    borderRadius: "45%",
                                     fontWeight: "bold",
                                 }}
                             >
@@ -111,10 +126,20 @@ function Header() {
                             </Typography>
                         </Button>
                     )}
+
+                    <Box sx={{ position: 'relative' }}>
+                        <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={handleShowMiniCart}>
+                            <Badge badgeContent={quantity} color="error">
+                                <ShoppingCartOutlinedIcon />
+                            </Badge>
+                        </IconButton>
+                        <MiniCart />
+                    </Box>
+
                 </Toolbar>
+
             </AppBar>
             {/*  Sub Menu */}
-
             <Menu
                 anchorOrigin={{
                     vertical: "bottom",

@@ -18,12 +18,12 @@ function SearchFilters(props) {
     }
 
     return (
-        <Box sx={{ display: "flex", width: "60%", ml: 20 }}>
+        <Box sx={{ display: "flex", width: "60%", ml: 10 }}>
             <TextField
                 size="small"
                 color="primary"
                 variant="outlined"
-                placeholder="Tìm sản phẩm,danh mục,hay thương hiệu mong muốn..."
+                placeholder="Tìm sản phẩm,danh mục mong muốn..."
                 value={valueSearch}
                 onChange={handleSearch}
                 sx={{

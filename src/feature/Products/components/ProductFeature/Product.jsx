@@ -4,11 +4,13 @@ import React from "react";
 import { HOST } from "../../../../constant/hostURL";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import { useNavigate } from "react-router-dom";
 
 Product.propTypes = {
     product: PropTypes.object,
 };
 function Product({ product = {}, filters = {} }) {
+    let navigate = useNavigate()
     const thumbnailUrl = product.thumbnail
         ? `${HOST.BASE_URL}${product.thumbnail?.url}`
         : HOST.PLACEHOLDER_IMAGE;
@@ -20,9 +22,15 @@ function Product({ product = {}, filters = {} }) {
 
     const promotionPercent =
         product.promotionPercent === 0 ? "" : ` -${product.promotionPercent}%`;
+
+    const handleRedirectToDetail = () => {
+        navigate({
+            pathname: `/products/${product.id}`,
+        });
+    }
     return (
         <div>
-            <Box sx={{ position: "relative" }} padding={1}>
+            <Box onClick={handleRedirectToDetail} sx={{ position: "relative" }} padding={1}>
                 <Box
                     minHeight="200px"
                     sx={{

@@ -46,7 +46,7 @@ function DetailPage(props) {
             <Container>
                 {/* Info product components */}
                 <Paper elevation={0}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={3} sx={{ mt: 1 }}>
                         <Grid
                             item
                             sx={{ width: "450px", p: 1, borderRight: "1px solid #ccc" }}

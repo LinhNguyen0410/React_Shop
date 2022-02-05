@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import ProductFeature from "./feature/Products";
-import CardFeature from "./feature/Cart";
+import CardFeature from "./feature/Products/pages/CartPage";
 
 function App() {
   return (

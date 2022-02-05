@@ -42,6 +42,7 @@ const userSlice = createSlice({
       // clear local storage
       localStorage.removeItem(KEYS.USER_INFO);
       localStorage.removeItem(KEYS.TOKEN);
+      localStorage.removeItem(KEYS.CART_INFO);
 
       // reset state.current in redux
       state.currentUser = {};

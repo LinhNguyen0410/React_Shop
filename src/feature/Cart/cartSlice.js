@@ -1,10 +1,12 @@
+import { KEYS } from "../../constant/storageKeys";
+
 const { createSlice } = require("@reduxjs/toolkit");
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
     showMiniCart: false,
-    cartItems: [],
+    cartItems: JSON.parse(localStorage.getItem(KEYS.CART_INFO)),
   },
   reducers: {
     showMiniCart(state, action) {
@@ -27,6 +29,7 @@ const cartSlice = createSlice({
         //...is unavailable product in cart => push into cart
         state.cartItems.push(newItem);
       }
+      localStorage.setItem(KEYS.CART_INFO, JSON.stringify(state.cartItems));
     },
 
     setQuantity(state, action) {
@@ -44,6 +47,7 @@ const cartSlice = createSlice({
       state.cartItems = state.cartItems.filter(
         (item) => item.id !== idNeedToRemove
       );
+      localStorage.setItem(KEYS.CART_INFO, JSON.stringify(state.cartItems));
     },
   },
 });

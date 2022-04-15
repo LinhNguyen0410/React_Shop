@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import userApi from "../../Api/userApi";
 import { KEYS } from "../../constant/storageKeys";
 

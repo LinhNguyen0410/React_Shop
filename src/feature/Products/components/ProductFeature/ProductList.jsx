@@ -1,9 +1,9 @@
-import { Grid, Skeleton } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import PropTypes from "prop-types";
 import React from "react";
-import Product from "./Product";
 import NotData from "../../../../components/NotData/NotData";
+import Product from "./Product";
 
 ProductList.propTypes = {
     product_data: PropTypes.array,

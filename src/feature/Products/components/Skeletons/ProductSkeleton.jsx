@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { Grid, Skeleton } from "@mui/material";
 import { Box } from "@mui/system";
-import { Skeleton, Grid } from "@mui/material";
+import PropTypes from "prop-types";
+import React from "react";
 
 ProductSkeleton.propTypes = {
     // count skeleton want showing......

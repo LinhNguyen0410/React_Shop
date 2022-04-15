@@ -1,8 +1,8 @@
 import { Container, Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Outlet, Route, Routes, useParams } from "react-router-dom";
 import productApi from "../../../Api/productApi";
 import { addToCart, showMiniCart } from "../../Cart/cartSlice";
 import AdditionalDetail from "../components/Detail/AdditionalDetail";
@@ -28,7 +28,7 @@ function DetailPage(props) {
                 console.log("Failed to fetch data :", error);
             }
         })();
-    }, []);
+    }, [productID]);
 
     //...event
     const handleSubmitQuantityForm = (formValues) => {
@@ -68,8 +68,8 @@ function DetailPage(props) {
                             path={""}
                             element={<DescriptionDetail product={productDetail} />}
                         ></Route>
-                        <Route path="additional" element={<AdditionalDetail />}></Route>
-                        <Route path="review" element={<ReviewDetail />}></Route>
+                        <Route path="additional" element={<AdditionalDetail product={productDetail} />}></Route>
+                        <Route path="review" element={<ReviewDetail product={productDetail} />}></Route>
                     </Routes>
                 </Paper>
             </Container>

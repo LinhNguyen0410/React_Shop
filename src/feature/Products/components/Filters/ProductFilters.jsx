@@ -5,6 +5,7 @@ import React from "react";
 import FilterByCategory from "./FilterByCategory";
 import FilterByPrice from "./FilterByPrice";
 import FilterByServices from "./FilterByServices";
+import Banner from "../../../../components/Banner/Banner";
 
 ProductFilters.propTypes = {
     filters: PropTypes.object.isRequired,
@@ -43,7 +44,7 @@ function ProductFilters({ filters, onChange }) {
             <FilterByPrice onChange={handlePriceChange} />
             <Divider />
             <FilterByServices filters={filters} onChange={handleServiceChange} />
-            <Divider />
+            <Banner />
         </Box>
     );
 }

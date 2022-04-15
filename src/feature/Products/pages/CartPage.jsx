@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import PropTypes from 'prop-types';
+import React from 'react';
 import CartDetail from '../../Cart/components/CartDetail';
 
 CardFeature.propTypes = {

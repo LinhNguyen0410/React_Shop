@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Skeleton from '@mui/material/Skeleton';
 import { Box } from '@mui/system';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 CategoryListSkeleton.propTypes = {
     lengthSkeleton: PropTypes.number,

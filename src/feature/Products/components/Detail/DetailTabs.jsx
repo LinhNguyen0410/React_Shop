@@ -1,7 +1,7 @@
 import { Link } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./DetailTabs.scss";
 
 function DetailTabs(props) {
@@ -17,20 +17,21 @@ function DetailTabs(props) {
                 }}
             >
                 <li>
-                    <Link className="detail__link" component={NavLink} to={""} >
+                    <Link className="detail__link" component={NavLink} to="" >
                         Mô tả
                     </Link>
                 </li>
                 <li>
-                    <Link className="detail__link" component={NavLink} to={`additional`}>
-                        Thông tin sản phẩm
+                    <Link className="detail__link" component={NavLink} to='additional'>
+                        Thông Tin Vận Chuyển
                     </Link>
                 </li>
                 <li>
-                    <Link className="detail__link" component={NavLink} to={`review`}>
+                    <Link className="detail__link" component={NavLink} to='review'>
                         Đánh giá
                     </Link>
                 </li>
+
             </Box>
         </Box>
     );

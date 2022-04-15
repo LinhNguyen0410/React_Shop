@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
 import categoryApi from "../../../../Api/categoryAPI";
 import CategoryListSkeleton from "../Skeletons/CategoryListSkeleton";
-import classnames from 'classnames'
+import './style.css'
 
 FilterByCategory.propTypes = {
     onChange: PropTypes.func,
@@ -12,6 +12,7 @@ FilterByCategory.propTypes = {
 function FilterByCategory({ onChange }) {
     const [loading, setLoading] = useState(true);
     const [categoryList, setCategoryList] = useState([]);
+    const [activeId, setActiveId] = useState();
 
     // call API
     useEffect(() => {
@@ -29,6 +30,7 @@ function FilterByCategory({ onChange }) {
     // event
     const handleCategoryClick = (category, index) => {
         if (onChange) onChange(category.id);
+        setActiveId(category.id);
     };
 
     return (
@@ -58,7 +60,7 @@ function FilterByCategory({ onChange }) {
                     }}
                 >
                     {categoryList.map((category, index) => (
-                        <li
+                        <li className={activeId === category.id ? "active" : ""}
                             key={category.id} onClick={() => handleCategoryClick(category, index)}>
                             {category.name}
                         </li>

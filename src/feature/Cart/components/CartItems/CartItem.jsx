@@ -3,11 +3,9 @@ import { Box, Button, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { HOST } from "../../../../constant/hostURL";
-import { formatPrice } from '../../../../utils/common'
+import { formatPrice } from '../../../../utils/common';
 import { removeFromCart } from "../../cartSlice";
-import { cartItemCount } from "../../selectors";
 
 CartItem.propTypes = {
     cartItem: PropTypes.object,

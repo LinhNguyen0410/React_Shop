@@ -1,18 +1,16 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import {
   Avatar,
   Button,
   Checkbox,
   FormControlLabel,
-  LinearProgress,
-  TextField,
-  Typography,
+  LinearProgress, Typography
 } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import InputField from "../../../../components/FormControl/InputField";
 import PasswordField from "../../../../components/FormControl/PasswordField";
 

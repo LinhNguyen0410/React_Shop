@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, Rating, Stack, Typography } from "@mui/material";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import ContactSupportOutlinedIcon from "@mui/icons-material/ContactSupportOutlined";
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { Box, Rating, Stack, Typography } from "@mui/material";
+import PropTypes from "prop-types";
+import React from "react";
 import { formatPrice, formatPromotionPercent } from "../../../../utils";
 
 ProductInfo.propTypes = {

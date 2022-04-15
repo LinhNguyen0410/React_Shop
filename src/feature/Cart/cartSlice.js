@@ -6,7 +6,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     showMiniCart: false,
-    cartItems: JSON.parse(localStorage.getItem(KEYS.CART_INFO)),
+    cartItems: JSON.parse(localStorage.getItem(KEYS.CART_INFO)) || [],
   },
   reducers: {
     showMiniCart(state, action) {

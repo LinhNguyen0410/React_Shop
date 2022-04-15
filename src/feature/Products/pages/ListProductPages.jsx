@@ -1,14 +1,14 @@
 import { Box, Container, Grid, Pagination, Paper } from "@mui/material";
+import queryString from 'query-string';
 import React, { useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import productApi from "../../../Api/productApi";
+import ScrollTop from "../../ScrollTop";
+import FiltersViewer from "../components/Filters/FiltersViewer";
+import ProductFilters from "../components/Filters/ProductFilters";
 import ProductList from "../components/ProductFeature/ProductList";
 import ProductSkeleton from "../components/Skeletons/ProductSkeleton";
 import ProductSort from "../components/Sort/ProductSort";
-import ProductFilters from "../components/Filters/ProductFilters";
-import ScrollTop from "../../ScrollTop";
-import FiltersViewer from "../components/Filters/FiltersViewer";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import queryString from 'query-string'
 
 function ListProductPages(props) {
     let navigate = useNavigate();
@@ -127,7 +127,7 @@ function ListProductPages(props) {
             <Container>
                 <Grid container spacing={3}>
                     <Grid item sx={{ width: "280px" }}>
-                        <Paper elevation={0} variant="outlined" square>
+                        <Paper elevation={0} variant="outlined" square sx={{ height: '100%' }}>
                             <ProductFilters
                                 filters={queryParams}
                                 onChange={handleFiltersChange}

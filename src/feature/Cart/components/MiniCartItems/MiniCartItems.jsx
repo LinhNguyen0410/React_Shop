@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box } from "@mui/system";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import PropTypes from "prop-types";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { HOST } from "../../../../constant/hostURL";
 import { formatPrice } from "../../../../utils/common";
-import "./MiniCartItem.scss";
-import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
-import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../cartSlice";
+import "./MiniCartItem.scss";
 
 MiniCartItems.propTypes = {
     cartList: PropTypes.array,

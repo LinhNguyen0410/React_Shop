@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Box } from "@mui/material";
-import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
+import React from "react";
 import CartItem from "./CartItem";
 
 CartList.propTypes = {

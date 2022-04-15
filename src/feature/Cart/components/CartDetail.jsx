@@ -1,10 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Box, Container, Grid, Paper, Typography } from "@mui/material";
-import CartList from "./CartItems/CartList";
-import CheckOut from "./CartItems/CheckOut";
+import React from "react";
 import { useSelector } from "react-redux";
 import { cartItemCount } from "../selectors";
+import CartList from "./CartItems/CartList";
+import CheckOut from "./CartItems/CheckOut";
 
 function CartDetail(props) {
     const cartState = useSelector((state) => state.cart.cartItems);

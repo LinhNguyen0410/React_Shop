@@ -1,13 +1,13 @@
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { Box, Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { hideMiniCart } from "../cartSlice";
-import MiniCartItems from "./MiniCartItems/MiniCartItems";
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { cartItemCount, cartItemTotal } from "../selectors";
+import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../../utils/common";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { hideMiniCart } from "../cartSlice";
+import { cartItemCount, cartItemTotal } from "../selectors";
+import MiniCartItems from "./MiniCartItems/MiniCartItems";
 
 MiniCart.propTypes = {};
 
@@ -84,7 +84,6 @@ function MiniCart(props) {
 
                             <Box
                                 sx={{
-                                    color: "#000",
                                     marginTop: "10px",
                                     mr: 1,
                                     paddingBottom: "10px",

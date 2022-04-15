@@ -1,9 +1,9 @@
 import { unwrapResult } from '@reduxjs/toolkit';
+import { useSnackbar } from 'notistack';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { registerAction } from '../../userSlice';
 import RegisterForm from '../RegisterForm';
-import { useSnackbar } from 'notistack';
 
 
 function Register(props) {

@@ -1,10 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Box, Button, Divider, Typography } from "@mui/material";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import PropTypes from "prop-types";
+import React from "react";
 import { useSelector } from "react-redux";
-import { cartItemTotal } from "../../selectors";
 import { formatPrice } from "../../../../utils/common";
+import { cartItemTotal } from "../../selectors";
 
 CheckOut.propTypes = {
     cartList: PropTypes.array,
